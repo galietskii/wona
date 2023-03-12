@@ -8,7 +8,7 @@
             infinite: true,
             speed: 300,
             slidesToShow: 1,
-            adaptiveHeight: trueg
+            adaptiveHeight: true
         });
     });
 
