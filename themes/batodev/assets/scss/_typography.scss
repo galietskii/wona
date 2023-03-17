@@ -1,0 +1,31 @@
+h3 {
+  font-size: get-vw(24px);
+  font-family: $fontKaushan;
+  color: $darkGray;
+  line-height: 1.2;
+  text-align: center;
+}
+h2 {
+  font-size: get-vw(30px);
+  font-family: $font;
+  font-weight: bold;
+  color: $darkGray;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+h4 {
+  font-size: get-vw(14px);
+  font-family: $font;
+  color: #333333;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+p {
+  font-size: get-vw(15px);
+  font-family: $fontRoboto;
+  color: rgb(153, 153, 153);
+  line-height: 1.6;
+  @media screen and (max-width: 1201px) {
+    font-size: 12px;
+  }
+}

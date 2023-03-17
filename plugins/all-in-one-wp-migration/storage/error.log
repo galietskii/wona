@@ -1,0 +1,6 @@
+Mar 17 2023 17:04:59
+{"Number":2,"Message":"rmdir(C:\\OSPanel\\domains\\fav\\wp-content\\plugins\\all-in-one-wp-migration\\storage\\7xxfmgnk5e5f): Directory not empty","File":"C:\\OSPanel\\domains\\fav\\wp-content\\plugins\\all-in-one-wp-migration\\lib\\vendor\\servmask\\filesystem\\class-ai1wm-directory.php","Line":72}
+
+Mar 17 2023 17:05:00
+{"Number":2,"Message":"filesize(): stat failed for C:\\OSPanel\\domains\\fav\\wp-content\\plugins\\all-in-one-wp-migration\\storage\\7xxfmgnk5e5f\\fav-20230317-190158-o2sbqi.wpress","File":"C:\\OSPanel\\domains\\fav\\wp-content\\plugins\\all-in-one-wp-migration\\lib\\vendor\\servmask\\archiver\\class-ai1wm-archiver.php","Line":231}
+

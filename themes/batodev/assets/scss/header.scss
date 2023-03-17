@@ -1,0 +1,138 @@
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding-top: get-vw(17px);
+  @media screen and (max-width: 769px) {
+    padding-top: 15px;
+  }
+  .custom-logo-link {
+    position: relative;
+    z-index: 99;
+  }
+  .row {
+    align-items: center;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    &-details {
+      display: flex;
+      align-items: center;
+      a {
+        margin-left: get-vw(35px);
+      }
+    }
+    @media screen and (max-width: 769px) {
+      display: none;
+    }
+  }
+  .hamburger {
+    display: none;
+    position: relative;
+    width: 35px;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    z-index: 99;
+    @media screen and (max-width: 769px) {
+      display: block;
+    }
+  }
+  .hamburger .bar, .hamburger:after, .hamburger:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: $white;
+    margin: 6px 0;
+    transition: .4s;
+  }
+
+  .hamburger.is-active:before {
+    transform: rotate(-45deg) translate(-8px, 6px);
+  }
+
+  .hamburger.is-active:after {
+    transform: rotate(45deg) translate(-9px, -8px);
+  }
+
+  .hamburger.is-active .bar {
+    opacity: 0;
+  }
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    z-index: 9;
+    background-color: $yellow;
+    padding-top: 120px;
+    transition: ease .4s;
+    ul {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    li {
+      display: block;
+      max-width: 200px;
+      width: 100%;
+      margin: 0 auto 16px;
+      text-align: center;
+      padding: 12px 16px;
+      background-color: #a3b745;
+    }
+  }
+  .mobile-nav.is-active {
+    left: 0;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li {
+      list-style: none;
+      padding: 10px 20px;
+
+      a {
+        position: relative;
+        font-size: 14px;
+        font-family: $font;
+        color: $white;
+        text-transform: uppercase;
+        line-height: 1.2;
+
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          background: transparent;
+          width: 100%;
+          height: 3px;
+        }
+
+        &:hover {
+          color: $yellow;
+          text-decoration: unset;
+        }
+
+      }
+    }
+
+    .menu-item.active a {
+      color: $yellow;
+
+      &:before {
+        background: $yellow;
+      }
+    }
+  }
+}

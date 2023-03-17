@@ -1,7 +1,9 @@
 <?php
 get_header();
 ?>
-<div>efrgerg</div>
-
-<?php get_template_part('parts/flexible-content'); ?>
+<?php if ( have_posts() ) : ?>
+    <?php while ( have_posts() ) : the_post(); ?>
+        <?php the_content(); ?>
+    <?php endwhile; ?>
+<?php endif; ?>
 <?php get_footer(); ?>

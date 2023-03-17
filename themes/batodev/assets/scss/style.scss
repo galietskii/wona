@@ -1,0 +1,32 @@
+// General
+.container {
+  max-width: 1230px !important;
+}
+
+@function get-vw($target) {
+  $vw-context: (1920 * 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
+
+
+/* Import variable styles*/
+@import "vars";
+@import "typography";
+/* Import header and footer */
+@import "header";
+@import "footer";
+/* Import blocks */
+@import 'blocks/hero';
+@import "blocks/service";
+@import "blocks/blog";
+@import "blocks/team";
+
+.content-wrapper {
+  height: 100%;
+  padding-top: get-vw(100px);
+  background: rgba(255, 192, 203);
+  display: table;
+  @media  screen and (max-width: 769px) {
+    padding-top: 60px;
+  }
+}

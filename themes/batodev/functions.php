@@ -8,6 +8,7 @@
  * Included Functions
  ******************************************************************************/
 
+
 add_filter('show_admin_bar', '__return_false');
 
 remove_action('wp_head',              'print_emoji_detection_script', 7);
@@ -24,6 +25,7 @@ remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head');
 remove_action('wp_head', 'wp_oembed_add_discovery_links');
 
+
 /* Theme Setting Options */
 if( function_exists('acf_add_options_page') ) {
 
@@ -38,17 +40,6 @@ if( function_exists('acf_add_options_page') ) {
 
 
 }
-
-/* Disable Clasic Editor
-*/
-
-// Disable gutenberg
-//add_filter('use_block_editor_for_post_type', '__return_false');
-// Disables the block editor from managing widgets in the Gutenberg plugin.
-//add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
-// Disables the block editor from managing widgets.
-//add_filter( 'use_widgets_block_editor', '__return_false' );
-
 
 /* ADD Custom Menu */
 
@@ -71,24 +62,21 @@ add_theme_support( 'custom-logo', array(
     'flex-width'  => true,
 ) );
 
-function show_custom_logo( $size = 'medium' ) {
-    if ( $custom_logo_id = get_theme_mod( 'custom_logo' ) ) {
-        $logo_image = wp_get_attachment_image( $custom_logo_id, $size, false, array(
-            'class'    => 'custom-logo',
-            'itemprop' => 'siteLogo',
-            'alt'      => get_bloginfo( 'name' ),
-        ) );
-    } else {
-        $logo_url = get_stylesheet_directory_uri() . '/assets/images/custom-logo.png';
-        $w        = 200;
-        $h        = 160;
-        $logo_image = '<img src="' . $logo_url . '" width="' . $w . '" height="' . $h . '" class="custom-logo" itemprop="siteLogo" alt="' . get_bloginfo( 'name' ) . '">';
-    }
+/* Gutenbergs Block */
 
-    $html       = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" title="%2$s" itemscope>%3$s</a>', esc_url( home_url( '/' ) ), get_bloginfo( 'name' ), $logo_image );
-    echo apply_filters( 'get_custom_logo', $html );
+require get_template_directory() . '/inc/template-functions.php';
+
+/* Register Custom Post Type and Taxonomy*/
+require get_template_directory() . '/inc/custom-post-type.php';
+
+
+add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+function my_scripts_method(){
+    wp_deregister_script('jquery');
+    wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.6.4.min.js', false, null, true );
+    wp_enqueue_script('jquery');
+    wp_enqueue_style( 'style', get_template_directory_uri(). '/assets/css/style.css' );
+    wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'));
 }
-
-
 
 

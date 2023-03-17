@@ -1,0 +1,190 @@
+
+.hero {
+  position: relative;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  img {
+    width: 100%;
+    height: 100vh;
+  }
+
+  &__slide {
+    position: relative;
+
+    &-description {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      bottom: 0;
+      max-width: 880px;
+      width: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      user-select: text;
+
+      h1 {
+        font-size: get-vw(150px);
+        font-family: $font;
+        color: $white;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 0.933;
+        text-align: center;
+      }
+
+      p {
+        font-size: get-vw(72px);
+        font-family: $fontKaushan;
+        color: $white;
+        line-height: 1.2;
+        @media screen and (max-width: 769px) {
+          font-size: 23px;
+        }
+      }
+
+      a {
+        position: relative;
+        font-size: get-vw(14px);
+        font-family: $font;
+        color: $white;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-align: center;
+        border: 3px solid $white;
+        padding: 8px 20px;
+        margin-top: get-vw(81px);
+        @media screen and (max-width: 769px) {
+          font-size: 14px;
+          margin-top: 20px;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          width: get-vw(60px);
+          height: 3px;
+          background: $white;
+          top: get-vw(-40px);
+          left: 0;
+          right: 0;
+          margin: auto;
+          @media screen and (max-width: 769px) {
+            width: 50px;
+            top: -10px;
+          }
+        }
+      }
+    }
+  }
+
+  .slick-dots {
+    position: absolute;
+    max-width: get-vw(1200px);
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    top: 0;
+    bottom: get-vw(65px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0;
+    @media screen and (max-width: 769px) {
+      top: unset;
+      flex-wrap: wrap;
+      max-width: 90%;
+    }
+    li {
+      position: relative;
+      list-style: none;
+      width: 24%;
+      border-top: 3px solid rgba(255, 255, 255, 0.5);
+      padding-top: 20px;
+      transition: ease .3s;
+      cursor: pointer;
+      @media screen and (max-width: 769px) {
+        width: 49%;
+        padding-top: 10px;
+        margin-top: 20px;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 20%;
+        height: 3px;
+        background: transparent;
+        top: -3px;
+        transition: ease 0.3s;
+      }
+
+      &:hover {
+        border-top: 3px solid $white;
+      }
+
+      &:hover:before {
+        width: 100%;
+        background: rgb(243, 129, 129);
+
+      }
+
+      button {
+        border: none;
+        background: transparent;
+        font-size: get-vw(24px);
+        font-family: $font;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.2;
+        @media screen and (max-width: 769px) {
+          font-size: 14px;
+        }
+
+        span {
+          font-weight: 400;
+          font-size: get-vw(18px);
+          padding-left: 10px;
+          @media screen and (max-width: 769px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .slick-active {
+      position: relative;
+      border-top: 3px solid $white;
+      button {
+        color: $white;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        width: 20%;
+        height: 3px;
+        background: rgb(243, 129, 129);
+        top: -3px;
+        transition: ease 0.3s;
+      }
+
+      &:hover:before {
+        width: 100%;
+      }
+    }
+  }
+}
+.hero.draggable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
